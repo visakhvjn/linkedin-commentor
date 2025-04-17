@@ -46,6 +46,8 @@ This Chrome extension reads the content of a LinkedIn post, generates a relevant
 ---
 
 ## Video
+Watch this video to see how the extension works:  
+[![Watch the video](https://img.youtube.com/vi/q_Vwp2rnQLo/0.jpg)](https://youtu.be/q_Vwp2rnQLo)
 
 ---
 
