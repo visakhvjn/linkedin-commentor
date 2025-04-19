@@ -1,18 +1,24 @@
 chrome.action.onClicked.addListener((tab) => {
-  console.log("Extension icon clicked. Injecting content script...");
-  chrome.scripting.executeScript(
-    {
-      target: { tabId: tab.id },
-      files: ["content.js"]
-    },
-    () => {
-      if (chrome.runtime.lastError) {
-        console.error("Error injecting content script:", chrome.runtime.lastError.message);
-        return;
+  // Check if the current tab's URL matches LinkedIn
+  if (tab.url && tab.url.startsWith("https://www.linkedin.com/")) {
+    console.log("Extension icon clicked. Injecting content script...");
+    chrome.scripting.executeScript(
+      {
+        target: { tabId: tab.id },
+        files: ["content.js"]
+      },
+      () => {
+        if (chrome.runtime.lastError) {
+          console.error("Error injecting content script:", chrome.runtime.lastError.message);
+          return;
+        }
+        console.log("Content script injected.");
       }
-      console.log("Content script injected.");
-    }
-  );
+    );
+  } else {
+    console.warn("This extension only works on LinkedIn.");
+    alert("This extension only works on LinkedIn.");
+  }
 });
 
 // Listen for messages from popup or content scripts
