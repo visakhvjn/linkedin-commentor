@@ -1,25 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LinkedIn Comment Generator</title>
   <script src="popup.js" defer></script>
   <style>
     body {
-      width: 400px; /* Set the desired width for the popup */
+      width: 400px;
       margin: 0;
-      padding: 10px;
+      padding: 20px;
       font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
     }
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #0073b1; /* LinkedIn blue */
+    }
+
+    p {
+      font-size: 14px;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
     button {
+      display: block;
+      width: 100%;
+      padding: 10px;
       margin-top: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #fff;
+      background-color: #0073b1; /* LinkedIn blue */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #005582; /* Darker LinkedIn blue */
+    }
+
+    button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+
+    #comment {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #e8f4fb;
+      border: 1px solid #0073b1;
+      border-radius: 5px;
+      font-size: 14px;
+      color: #333;
+      word-wrap: break-word;
+    }
+
+    #copyComment {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .status-message {
+      margin-top: 10px;
+      font-size: 14px;
+      color: green;
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 12px;
+      text-align: center;
+      color: #666;
+    }
+
+    footer a {
+      color: #0073b1;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <h2>Comment Generator</h2>
-  <p>This extension generates a comment for the first post in your feed.</p>
-  <button id="generateComment">Generate</button>
+  <div>
+    <h2>LinkedIn Comment Generator</h2>
+    <p>Generate a relevant comment for the first post in your LinkedIn feed.</p>
+  </div>
+  
+  <button id="generateComment">Generate Comment</button>
   <p id="comment"></p>
-  <button id="copyComment" style="display: none;">Copy</button>
+  <button id="copyComment">Copy Comment</button>
+
+  <footer>
+    <p>Made with ❤️ for LinkedIn users. <a href="https://github.com" target="_blank">Learn more</a></p>
+  </footer>
 </body>
 </html>
